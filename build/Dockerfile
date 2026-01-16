@@ -11,7 +11,7 @@ COPY . /go/src/github.com/mumoshu/aws-secret-operator
 RUN if [ -n "${APP_VERSION}" ]; then git checkout -b tag refs/tags/${APP_VERSION} || git checkout -b branch ${APP_VERSION}; fi \
     && make build -e GO111MODULE=on
 
-FROM alpine:3.10
+FROM alpine:3.23.2
 
 RUN apk add --update --no-cache ca-certificates libc6-compat
 
